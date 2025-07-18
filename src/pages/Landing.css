@@ -1,0 +1,12 @@
+.landing-hero {
+    height: 100vh;
+    background: linear-gradient(to bottom right, #003049, #1d3557);
+    /* nice dark theme */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    color: white;
+}
