@@ -1,27 +1,48 @@
 import { useState } from 'react';
 import { Modal, Button, Form, Container, Row, Col, Card } from 'react-bootstrap';
 import './Landing.css';
+import { motion } from 'framer-motion';
 
 export default function Landing() {
     const [showLogin, setShowLogin] = useState(false);
     const [showSignup, setShowSignup] = useState(false);
 
     return (
-        <div className="landing-hero min-vh-100 d-flex align-items-center text-white">
+        <div className="landing-hero">
             <Container>
                 <Row className="align-items-center">
                     {/* LEFT COLUMN */}
                     <Col md={4} className="text-center text-md-start mb-5 mb-md-0">
-                        <h1 className="display-3 fw-bold">Travel Companion</h1>
-                        <p className="lead mb-4">Plan, explore, and relive your adventures.</p>
-                        <div>
-                            <Button variant="light" className="me-3" onClick={() => setShowLogin(true)}>
+                        <motion.h1
+                            className="display-3 fw-bold"
+                            initial={{ opacity: 0, x: -50 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.6 }}
+                        >
+                            Travel Companion
+                        </motion.h1>
+
+                        <motion.p
+                            className="lead mb-4"
+                            initial={{ opacity: 0, x: -50 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.8 }}
+                        >
+                            Plan, explore, and relive your adventures.
+                        </motion.p>
+
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.5 }}
+                        >
+                            <Button variant="outline-success" className="me-3" onClick={() => setShowLogin(true)}>
                                 Login
                             </Button>
-                            <Button variant="outline-light" onClick={() => setShowSignup(true)}>
+                            <Button variant="outline-primary" onClick={() => setShowSignup(true)}>
                                 Sign Up
                             </Button>
-                        </div>
+                        </motion.div>
                     </Col>
 
                     {/* RIGHT COLUMN - DEMO */}
@@ -29,7 +50,8 @@ export default function Landing() {
                         <h3 className="text-white mb-4">See How It Works</h3>
                         <Row>
                             <Col md={6}>
-                                <Card bg="light" text="dark" className="mb-4">
+                                <Card bg="secondary" text="light" className="mb-4 shadow-sm">
+                                    <Card.Img variant="top" src="/src/assets/paris.jpg" />
                                     <Card.Body>
                                         <Card.Title>My Europe Trip</Card.Title>
                                         <Card.Text>
@@ -40,7 +62,8 @@ export default function Landing() {
                                 </Card>
                             </Col>
                             <Col md={6}>
-                                <Card bg="light" text="dark" className="mb-4">
+                                <Card bg="secondary" text="light" className="mb-4 shadow-sm">
+                                    <Card.Img variant="top" src="/src/assets/bali.jpg" />
                                     <Card.Body>
                                         <Card.Title>Beach Getaway</Card.Title>
                                         <Card.Text>
